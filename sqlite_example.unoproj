@@ -1,6 +1,5 @@
 {
   "Name": "FuseSQLiteLib",
-  "RootNamespace": "",
   "Packages": [
     "Fuse",
     "FuseJS"

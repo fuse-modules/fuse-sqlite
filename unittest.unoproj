@@ -1,18 +1,17 @@
 {
   "Name":"FuseSQLiteLib",
-  "RootNamespace":"",
   "Packages": [
-        "Fuse.Controls",
-        "Fuse.BasicTheme",
-        "Fuse.Gestures",
-        "Fuse.Reactive",
-        "Fuse.Scripting",
-        "FuseCore",
-        "Uno.Collections",
-        "ObjC",
-        "Fuse.Android",
-        "Fuse.Desktop",
-        "Fuse.iOS"
+    "Fuse.Controls",
+    "Fuse.BasicTheme",
+    "Fuse.Gestures",
+    "Fuse.Reactive",
+    "Fuse.Scripting",
+    "FuseCore",
+    "Uno.Collections",
+    "ObjC",
+    "Fuse.Android",
+    "Fuse.Desktop",
+    "Fuse.iOS"
   ],
   "Includes": [
     "*.uno",
