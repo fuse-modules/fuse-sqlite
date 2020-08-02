@@ -12,17 +12,15 @@ Issues, feature requests and pull requests are welcome.
 
 ## Install
 
-Using [npm](https://www.npmjs.com/)
-
     $ npm install fuse-sqlite
 
-(Legacy) Using [fusepm](https://github.com/bolav/fusepm)
+Using [fusepm](https://github.com/bolav/fusepm) (legacy)
 
     $ fusepm install https://github.com/fuse-open/fuse-sqlite
 
-## Usage:
+## Usage
 
-> Check out the [example app](example/) for a complete example project using TypeScript.
+> Check out the [example app](example/) for a complete project using TypeScript.
 
 ### UX
 
@@ -39,7 +37,7 @@ import sqlite from "SQLite";
 ```js
 const db = sqlite.open("file.sqlite");
 db.execute("create table if not exists ids (id integer primary key)");
-db.execute("insert into ids values (?)",2);
+db.execute("insert into ids values (?)", 2);
 const r = db.query("select * from ids");
 console.log(JSON.stringify(r));
 ```
@@ -47,13 +45,13 @@ console.log(JSON.stringify(r));
 It returns an array:
 ```js
 [
-	{"field1":"value1","field2":"value2"},
-	{"field1":"value1","field2":"value2"}
+    {"field1": "value1", "field2": "value2"},
+    {"field1": "value1", "field2": "value2"}
 ]
 ```
 
 API
-----
+---
 
 ### import
 
@@ -122,7 +120,7 @@ Prepares a query. Returns a prepared statement.
 
 ```js
 const statement = db.prepare(sql_statement);
-statement.execute(var1,var2,var3);
+statement.execute(var1, var2, var3);
 ```
 
 ### db.close
@@ -133,23 +131,22 @@ Closes the database.
 db.close();
 ```
 
-### Possible future functionality
+## Possible future functionality
 
 * Cursor support
 * Async support
 * Bundled pre-made databases
 
-### Known Issues
+## Known Issues
 
 * Error messages is a bit different between the targets
-* Support for JavaScript and CMake Fuse targets is not planned.
 
-### Windows
+## Windows
 
 * The sqlite3.dll is downloaded from http://www.sqlite.org/download.html
 * Mono.Data.Sqlite.dll is included from Mono.
 
-### Errors:
+## Troubleshooting
 
 * `Failed to load assembly . . . have caused the assembly to be sandboxed . . .`
 
