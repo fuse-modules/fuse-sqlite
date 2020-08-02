@@ -1,20 +1,11 @@
 {
-  "Name": "FuseSQLiteLib",
   "Packages": [
     "Fuse",
-    "FuseJS"
+    "FuseJS",
+    "SQLite"
   ],
   "Includes": [
-    "*.uno",
-    "*.uxl",
     "MainView.ux",
-    "bundle.sqlite:Bundle",
-    "SQLiteImpl.CIL.dll:File",
-    "sqlite3.dll:File",
-    "Mono.Data.Sqlite.dll:File"
-  ],
-  "Version": "0.12.0",
-  "Projects": [
-    "foreignhelpers/foreignhelpers_include.unoproj"
+    "bundle.sqlite:Bundle"
   ]
 }
