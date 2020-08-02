@@ -1,0 +1,15 @@
+{
+  "name": "fuse-sqlite-example",
+  "private": true,
+  "devDependencies": {
+    "@fuse-open/types": "^1.14.0",
+    "fuse-sqlite": "^0.12.0",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "android": "uno build android --run",
+    "dotnet": "uno build dotnet --run",
+    "ios": "uno build ios --run",
+    "tsc": "tsc"
+  }
+}
