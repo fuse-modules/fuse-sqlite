@@ -5,7 +5,6 @@ using Uno.Collections;
 using Bolav.ForeignHelpers;
 
 // http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html
-[TargetSpecificImplementation]
 public extern(Android) static class SQLiteImpl {
 
 	[Foreign(Language.Java)]

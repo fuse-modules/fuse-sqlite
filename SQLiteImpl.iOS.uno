@@ -12,7 +12,6 @@ using Bolav.ForeignHelpers;
 // http://www.appcoda.com/sqlite-database-ios-app-tutorial/
 
 [Require("Source.Include", "@{ForeignDict:Include}")]
-[TargetSpecificImplementation]
 public extern(iOS) static class SQLiteImpl {
 
 	// TODO: Rewrite to an exception thrower, to make this modular

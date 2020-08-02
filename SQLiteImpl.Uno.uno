@@ -2,7 +2,6 @@ using Bolav.ForeignHelpers;
 using Uno.Compiler.ExportTargetInterop;
 // http://www.appcoda.com/sqlite-database-ios-app-tutorial/
 
-[TargetSpecificImplementation]
 public extern(Uno) static class SQLiteImpl {
 
 	public static int OpenImpl(string filename) {
