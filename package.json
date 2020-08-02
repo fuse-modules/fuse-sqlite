@@ -12,6 +12,7 @@
   ],
   "files": [
     "build/SQLite/*",
+    "index.d.ts",
     ".unoconfig"
   ],
   "scripts": {
