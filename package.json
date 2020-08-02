@@ -20,7 +20,8 @@
     "prepack": "uno doctor SQLite.unoproj -c Release",
     "android": "uno build android example --run",
     "dotnet": "uno build dotnet example --run",
-    "ios": "uno build ios example --run"
+    "ios": "uno build ios example --run",
+    "test": "uno build test --run"
   },
   "repository": {
     "type": "git",
