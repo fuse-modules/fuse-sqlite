@@ -1,41 +1,51 @@
-Fuse SQLite bindings ![Fuse Version](https://fuse-version.herokuapp.com/?repo=https://github.com/bolav/fuse-sqlite)
+Fuse SQLite bindings
 ====================
 
-Library to use [SQLite](https://www.sqlite.org/) in [Fuse](http://www.fusetools.com/).
+[![NPM package](https://img.shields.io/npm/v/fuse-sqlite.svg?style=flat-square)](https://www.npmjs.com/package/fuse-sqlite)
+[![License: MIT](https://img.shields.io/github/license/fuse-open/fuse-sqlite.svg?style=flat-square)](LICENSE)
 
-Status: beta
+Library to use [SQLite](https://www.sqlite.org/) in [Fuse](https://fuseopen.com/).
 
-Currently supports iOS, Android and CIL (Fuse Preview)
+Currently supports `ios`, `android` and `dotnet` (Fuse Preview).
 
-Issues, feature request and pull request are welcomed.
+Issues, feature requests and pull requests are welcome.
 
-## Installation
+## Install
 
-Using [fusepm](https://github.com/bolav/fusepm)
+Using [npm](https://www.npmjs.com/)
 
-    $ fusepm install https://github.com/bolav/fuse-sqlite
+    $ npm install fuse-sqlite
 
+(Legacy) Using [fusepm](https://github.com/bolav/fusepm)
+
+    $ fusepm install https://github.com/fuse-open/fuse-sqlite
 
 ## Usage:
 
+> Check out the [example app](example/) for a complete example project using TypeScript.
+
 ### UX
 
-`<SQLite ux:Global="SQLite" />`
-
-
-### JS
-
+```xml
+<SQLite ux:Global="SQLite" />`
 ```
-var sqlite = require('SQLite');
-var db = sqlite.open("file.sqlite");
+
+### JS or TypeScript
+
+```js
+import sqlite from "SQLite";
+```
+
+```js
+const db = sqlite.open("file.sqlite");
 db.execute("create table if not exists ids (id integer primary key)");
 db.execute("insert into ids values (?)",2);
-var r = db.query("select * from ids");
-debug_log(JSON.stringify(r));
+const r = db.query("select * from ids");
+console.log(JSON.stringify(r));
 ```
 
 It returns an array:
-```
+```js
 [
 	{"field1":"value1","field2":"value2"},
 	{"field1":"value1","field2":"value2"}
@@ -45,34 +55,44 @@ It returns an array:
 API
 ----
 
-### require
+### import
 
+```js
+import sqlite from "SQLite";
 ```
-var sqlite = require('SQLite');
+
+### require (legacy)
+
+```js
+const sqlite = require('SQLite');
 ```
 
 ### sqlite.open
 
 Opens a file that contains a SQLite database
 
-```
-var db = sqlite.open(filename);
+```js
+const db = sqlite.open(filename);
 ```
 
 ### sqlite.openFromBundle
 
 Opens a file that contains a SQLite database, possibly from the bundle
 
-```
-var db = sqlite.openFromBundle(filename);
+```js
+const db = sqlite.openFromBundle(filename);
 ```
 
 And in the `unoproj`:
 
-```
+```json
+"Packages": [
+  "Fuse",
+  "FuseJS",
+  "SQLite"
+],
 "Includes": [
-  "*.uno",
-  "*.uxl",
+  "*.ts",
   "*.ux",
   "bundle.sqlite:Bundle"
 ]
@@ -82,7 +102,7 @@ And in the `unoproj`:
 
 Executes a query. Does not return anything.
 
-```
+```js
 db.execute(sql_statement);
 db.execute(sql_statement, var1, var2, var3);
 ```
@@ -91,17 +111,17 @@ db.execute(sql_statement, var1, var2, var3);
 
 Executes a query. Returns an array of hashes with the result.
 
-```
-var result = db.query(sql_statement);
-var result = db.query(sql_statement, var1, var2, var3);
+```js
+const result = db.query(sql_statement);
+const result = db.query(sql_statement, var1, var2, var3);
 ```
 
 ### db.prepare
 
 Prepares a query. Returns a prepared statement.
 
-```
-var statement = db.prepare(sql_statement);
+```js
+const statement = db.prepare(sql_statement);
 statement.execute(var1,var2,var3);
 ```
 
@@ -109,7 +129,7 @@ statement.execute(var1,var2,var3);
 
 Closes the database.
 
-```
+```js
 db.close();
 ```
 
