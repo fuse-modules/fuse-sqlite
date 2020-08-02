@@ -1,0 +1,34 @@
+{
+  "name": "fuse-sqlite",
+  "version": "0.12.0",
+  "description": "SQLite package for Fuse Open.",
+  "devDependencies": {
+    "fuse-sdk": "^1.14.0"
+  },
+  "keywords": [
+    "fuse",
+    "sqlite",
+    "database"
+  ],
+  "files": [
+    "build/FuseSQLiteLib/*",
+    ".unoconfig"
+  ],
+  "scripts": {
+    "build": "uno doctor sqlite_example.unoproj",
+    "prepack": "uno doctor sqlite_example.unoproj -c Release",
+    "android": "uno build android sqlite_example.unoproj --run",
+    "dotnet": "uno build dotnet sqlite_example.unoproj --run",
+    "ios": "uno build ios sqlite_example.unoproj --run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuse-open/fuse-sqlite.git"
+  },
+  "author": "Bjørn-Olav Strand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuse-open/fuse-sqlite/issues"
+  },
+  "homepage": "https://github.com/fuse-open/fuse-sqlite#readme"
+}
