@@ -17,9 +17,9 @@
   "scripts": {
     "build": "uno doctor SQLite.unoproj",
     "prepack": "uno doctor SQLite.unoproj -c Release",
-    "android": "uno build android sqlite_example.unoproj --run",
-    "dotnet": "uno build dotnet sqlite_example.unoproj --run",
-    "ios": "uno build ios sqlite_example.unoproj --run"
+    "android": "uno build android example --run",
+    "dotnet": "uno build dotnet example --run",
+    "ios": "uno build ios example --run"
   },
   "repository": {
     "type": "git",
