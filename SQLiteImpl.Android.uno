@@ -36,7 +36,7 @@ public extern(Android) static class SQLiteImpl {
 			for (int i=0; i<curs.getColumnCount(); i++) {
 				@{ForeignDict:Of(row).SetKeyVal(string,string):Call(curs.getColumnName(i), curs.getString(i))};
 			}
-		    curs.moveToNext();
+			curs.moveToNext();
 		}
 	@}
 }

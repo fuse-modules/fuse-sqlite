@@ -28,13 +28,13 @@ namespace Bolav.ForeignHelpers {
 		extern(iOS) public void FromiOS (ObjC.Object ary)
 		@{
 			for(id obj in ary) {
-			    if ([obj isKindOfClass:[NSDictionary class]]) {
-			    	id<UnoObject> ddict = @{JSList:Of(_this).NewDictRow():Call()};
-			    	@{JSDict:Of(ddict).FromiOS(ObjC.Object):Call(obj)};
-			    }
-			    else {
-			    	NSLog(@"Unhandled class JSList.FromiOS: %@", NSStringFromClass([obj class]));
-			    }
+				if ([obj isKindOfClass:[NSDictionary class]]) {
+					id<UnoObject> ddict = @{JSList:Of(_this).NewDictRow():Call()};
+					@{JSDict:Of(ddict).FromiOS(ObjC.Object):Call(obj)};
+				}
+				else {
+					NSLog(@"Unhandled class JSList.FromiOS: %@", NSStringFromClass([obj class]));
+				}
 			}
 		@}
 
@@ -57,11 +57,11 @@ namespace Bolav.ForeignHelpers {
 
 	[ForeignInclude(Language.Java,
 					"java.lang.Object",
-    	            "java.util.List",
-	                "java.util.ArrayList",
-	                "java.util.Map",
-	                "java.util.HashMap",
-	                "android.util.Log")]
+					"java.util.List",
+					"java.util.ArrayList",
+					"java.util.Map",
+					"java.util.HashMap",
+					"android.util.Log")]
 	public class JSDict : ForeignDict {
 		Context ctx;
 		Fuse.Scripting.Object obj;
@@ -80,26 +80,26 @@ namespace Bolav.ForeignHelpers {
 			for(id key in dict) {
 				
 				::id value = [dict objectForKey:key];
-			    
-			    if ([value isKindOfClass:[NSString class]]) {
-			        @{JSDict:Of(_this).SetKeyVal(string, string):Call(key, value)};
-			    }
-			    else if ([value isKindOfClass:[NSDictionary class]]) {
-			    	id<UnoObject> ddict = @{JSDict:Of(_this).AddDictForKey(string):Call(key)};
-			    	@{JSDict:Of(ddict).FromiOS(ObjC.Object):Call(value)};
-			    }
-			    else if ([value isKindOfClass:[NSNumber class]]) {
+				
+				if ([value isKindOfClass:[NSString class]]) {
+					@{JSDict:Of(_this).SetKeyVal(string, string):Call(key, value)};
+				}
+				else if ([value isKindOfClass:[NSDictionary class]]) {
+					id<UnoObject> ddict = @{JSDict:Of(_this).AddDictForKey(string):Call(key)};
+					@{JSDict:Of(ddict).FromiOS(ObjC.Object):Call(value)};
+				}
+				else if ([value isKindOfClass:[NSNumber class]]) {
 
 					@{JSDict:Of(_this).SetKeyVal(string, string):Call(key, [value stringValue])};
-			    }
-			    else if ([value isKindOfClass:[NSArray class]]) {
+				}
+				else if ([value isKindOfClass:[NSArray class]]) {
 
-			    	id<UnoObject> array = @{JSDict:Of(_this).AddListForKey(string):Call(key)};
-			    	@{JSList:Of(array).FromiOS(ObjC.Object):Call(value)};
-			    }
-			    else {
-			    	NSLog(@"Unhandled class JSDict.FromiOS: %@", NSStringFromClass([value class]));
-			    }
+					id<UnoObject> array = @{JSDict:Of(_this).AddListForKey(string):Call(key)};
+					@{JSList:Of(array).FromiOS(ObjC.Object):Call(value)};
+				}
+				else {
+					NSLog(@"Unhandled class JSDict.FromiOS: %@", NSStringFromClass([value class]));
+				}
 			}
 		@}
 
@@ -120,17 +120,17 @@ namespace Bolav.ForeignHelpers {
 				else if (value instanceof Map) {
 				
 					UnoObject ddict = @{JSDict:Of(_this).AddDictForKey(string):Call(key)};
-			    	@{JSDict:Of(ddict).FromJava(Java.Object):Call(value)};
+					@{JSDict:Of(ddict).FromJava(Java.Object):Call(value)};
 				}
 				else if( value instanceof List) {
 
-		    		UnoObject array = @{JSDict:Of(_this).AddListForKey(string):Call(key)};
-			    	@{JSList:Of(array).FromJava(Java.Object):Call(value)};
+					UnoObject array = @{JSDict:Of(_this).AddListForKey(string):Call(key)};
+					@{JSList:Of(array).FromJava(Java.Object):Call(value)};
 				}			
-			    else {
+				else {
 
-			    	debug_log("Unhandled class JSDict.FromJava: " + value);
-			    }
+					debug_log("Unhandled class JSDict.FromJava: " + value);
+				}
 			}
 		@}
 

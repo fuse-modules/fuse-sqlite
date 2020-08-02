@@ -46,7 +46,7 @@ public class SQLite : NativeModule {
 			int read;
 			while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
 			{
-			    output.Write (buffer, 0, read);
+				output.Write (buffer, 0, read);
 			}
 			input.Close();
 			output.Close();
