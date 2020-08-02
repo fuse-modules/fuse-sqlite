@@ -1,23 +1,12 @@
 {
-  "Name":"FuseSQLiteLib",
   "Packages": [
-    "Fuse.Controls",
-    "Fuse.BasicTheme",
-    "Fuse.Gestures",
-    "Fuse.Reactive",
-    "Fuse.Scripting",
-    "FuseCore",
-    "Uno.Collections",
-    "ObjC",
-    "Fuse.Android",
-    "Fuse.Desktop",
-    "Fuse.iOS"
+    "Fuse",
+    "FuseJS",
+    "SQLite"
   ],
   "Includes": [
-    "*.uno",
-    "*.uxl",
     "UnitTest.ux",
-    "bundle_2.sqlite:Bundle",
-    "bundle_3.sqlite:Bundle"
+    //"bundle_2.sqlite:Bundle",
+    //"bundle_3.sqlite:Bundle"
   ]
 }

@@ -1,4 +1,4 @@
-<App Theme="Basic">
+<App>
 	<SQLite ux:Global="SQLite" />
 	<JavaScript>
 		var sqlite = require('SQLite');
